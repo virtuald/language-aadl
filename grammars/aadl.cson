@@ -1,0 +1,54 @@
+comment: "Converted from Textmate AADL support by Julien Delange <delange@enst.fr> -- feel free to use and modify"
+fileTypes: [
+  "aadl"
+]
+foldingStartMarker: "\\b(?i:(package|system|process|data|device|thread|thread group|subprogram))\\b"
+foldingStopMarker: "\\b(?i:(end .*))\\b"
+name: "AADL"
+patterns: [
+  {
+    captures:
+      "1":
+        name: "storage.type.function.aadl"
+      "2":
+        name: "entity.name.function.aadl"
+    match: "\\b(?i:(virtual bus|virtual processor|bus|process|thread|thread group|data|system|subprogram|processor|))\\b\\s+(\\w+(\\.\\w+)?|\"(?:\\+|-|=|\\*|/)\")"
+    name: "meta.componenttype.aadl"
+  }
+  {
+    captures:
+      "1":
+        name: "storage.type.package.ada"
+      "2":
+        name: "keyword.other.body.ada"
+      "3":
+        name: "entity.name.type.package.ada"
+    match: "\\b(?i:(package|properties)(?:\\b\\s+(body))?)\\b\\s+(\\w+(\\.\\w+)?|\"(?:\\+|-|=|\\*|/)\")"
+    name: "meta.function.aadl"
+  }
+  {
+    captures:
+      "1":
+        name: "storage.type.function.ada"
+      "2":
+        name: "entity.name.function.ada"
+    match: "\\b(?i:(end))\\b\\s+(\\w+(\\.\\w+)?|\"(\\+|-|=|\\*|/)\")\\s?;"
+    name: "meta.function.aadl"
+  }
+  {
+    match: "\\b(?i:(\\=>|public|private))\\b"
+    name: "keyword.others.aadl"
+  }
+  {
+    match: "\\b(?i:(\\=>|features|properties|connections|subcomponents|port|event|data|))\\b"
+    name: "keyword.componentspecs.aadl"
+  }
+  {
+    captures:
+      "1":
+        name: "punctuation.definition.comment.aadl"
+    match: "(--)(.*)$\\n?"
+    name: "comment.double-dash.aadl"
+  }
+]
+scopeName: "source.aadl"

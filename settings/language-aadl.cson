@@ -1,0 +1,3 @@
+".source.aadl":
+  editor:
+    increaseIndentPattern: "\\b(?i:(properties|connections|features))\\b"
