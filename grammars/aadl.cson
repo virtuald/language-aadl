@@ -11,8 +11,10 @@ patterns: [
       "1":
         name: "storage.type.function.aadl"
       "2":
+        name: "storage.modifier.function.aadl"
+      "3":
         name: "entity.name.function.aadl"
-    match: "\\b(?i:(virtual bus|virtual processor|bus|process|thread|thread group|data|system|subprogram|processor|))\\b\\s+(\\w+(\\.\\w+)?|\"(?:\\+|-|=|\\*|/)\")"
+    match: "\\b(?i:(abstract|bus|data|device|feature group|memory|process|processor|subprogram|system|thread|thread group|virtual processor|virtual bus|with|))\\b\\s+(implementation\\s+)?(\\w+(\\.\\w+)?|\"(?:\\+|-|=|\\*|/)\")"
     name: "meta.componenttype.aadl"
   }
   {
@@ -40,7 +42,7 @@ patterns: [
     name: "keyword.others.aadl"
   }
   {
-    match: "\\b(?i:(\\=>|features|properties|connections|subcomponents|port|event|data|))\\b"
+    match: "\\b(?i:(\\=>|features|properties|connections|subcomponents|port|event|data|flows|))\\b"
     name: "keyword.componentspecs.aadl"
   }
   {
@@ -49,6 +51,33 @@ patterns: [
         name: "punctuation.definition.comment.aadl"
     match: "(--)(.*)$\\n?"
     name: "comment.double-dash.aadl"
+  }
+  {
+    captures:
+      "1":
+        name: "storage.modifier.var1.aadl"
+      "2":
+        name: "storage.type.var1.aadl"
+    match: ".*:\\s*(?:(in|out|in\\s+out)\\s+)?(data port|event port|event data port|port|parameter)(;|\\s+).*"
+    name: "meta.function.aadl"
+  }
+  {
+    captures:
+      "1":
+        name: "storage.modifier.var.aadl"
+      "2":
+        name: "storage.type.var.aadl"
+    match: ".*:\\s*(?:(provides|requires)\\s+)?(bus\\s+access|flow\\s+path|feature group|processor|process)\\s+.*"
+    name: "meta.function.aadl"
+  }
+  {
+    captures:
+      "1":
+        name: "storage.modifier.var.aadl"
+      "2":
+        name: "storage.type.var.aadl"
+    match: ".*:\\s*(abstract|bus|data|device|memory|process|processor|subprogram|system|thread|thread group|virtual processor|virtual bus|)\\s+.*"
+    name: "meta.function.aadl"
   }
 ]
 scopeName: "source.aadl"
